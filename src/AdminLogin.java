@@ -1,21 +1,9 @@
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.GroupLayout;
+import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
-import java.awt.Font;
-import java.awt.Color;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
+import javax.swing.border.EmptyBorder;
+import java.awt.*;
 import java.awt.event.ActionEvent;
-import javax.swing.JPasswordField;
+import java.awt.event.ActionListener;
 
 public class AdminLogin extends JFrame {
 	static AdminLogin frame;
@@ -25,6 +13,7 @@ public class AdminLogin extends JFrame {
 
 	/**
 	 * Launch the application.
+	 *
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -69,7 +58,7 @@ public class AdminLogin extends JFrame {
 				AdminSuccess.main(new String[]{});
 				frame.dispose();
 			}else{
-				JOptionPane.showMessageDialog(AdminLogin.this, "Sorry, Username or Password Error","Login Error!", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(AdminLogin.this, "Sorry, Username or Password Error","Login Error! Alarm!", JOptionPane.ERROR_MESSAGE);
 				textField.setText("");
 				passwordField.setText("");
 			}
