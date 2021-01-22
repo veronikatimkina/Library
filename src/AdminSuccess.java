@@ -65,7 +65,7 @@ public class AdminSuccess extends JFrame {
 		});
 		btnDeleteLibrarian.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		
-		JButton btnLogout = new JButton("Logout");
+		JButton btnLogout = new JButton("Logout!");
 		btnLogout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Library.main(new String[]{});
