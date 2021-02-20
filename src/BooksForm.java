@@ -20,14 +20,12 @@ public class BooksForm extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					frame = new BooksForm();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+		EventQueue.invokeLater(() -> {
+			try {
+				frame = new BooksForm();
+				frame.setVisible(true);
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		});
 	}
@@ -73,24 +71,22 @@ public class BooksForm extends JFrame {
 		textField_4.setColumns(10);
 		
 		JButton btnAddBooks = new JButton("Add Books");
-		btnAddBooks.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			String callno=textField.getText();
-			String name=textField_1.getText();
-			String author=textField_2.getText();
-			String publisher=textField_3.getText();
-			String squantity=textField_4.getText();
-			int quantity=Integer.parseInt(squantity);
-			int i=BookDao.save(callno, name, author, publisher, quantity);
-			if(i>0){
-				JOptionPane.showMessageDialog(BooksForm.this,"Books added successfully!");
-				LibrarianSuccess.main(new String[]{});
-				frame.dispose();
-				
-			}else{
-				JOptionPane.showMessageDialog(BooksForm.this,"Sorry, unable to save!");
-			}
-			}
+		btnAddBooks.addActionListener(e -> {
+		String callno=textField.getText();
+		String name=textField_1.getText();
+		String author=textField_2.getText();
+		String publisher=textField_3.getText();
+		String squantity=textField_4.getText();
+		int quantity=Integer.parseInt(squantity);
+		int i=BookDao.save(callno, name, author, publisher, quantity);
+		if(i>0){
+			JOptionPane.showMessageDialog(BooksForm.this,"Books added successfully!");
+			LibrarianSuccess.main(new String[]{});
+			frame.dispose();
+
+		}else{
+			JOptionPane.showMessageDialog(BooksForm.this,"Sorry, unable to save!");
+		}
 		});
 		
 		JButton btnBack = new JButton("Back");
