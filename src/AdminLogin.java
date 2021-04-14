@@ -48,19 +48,17 @@ public class AdminLogin extends JFrame {
 		textField.setColumns(10);
 		
 		JButton btnLogin = new JButton("Login");
-		btnLogin.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			String name=textField.getText();
-			String password=String.valueOf(passwordField.getPassword());
-			if(name.equals("admin")&&password.equals("admin123")){
-				AdminSuccess.main(new String[]{});
-				frame.dispose();
-			}else{
-				JOptionPane.showMessageDialog(AdminLogin.this, "Sorry, Username or Password Error","Login Error! Alarm!", JOptionPane.ERROR_MESSAGE);
-				textField.setText("");
-				passwordField.setText("");
-			}
-			}
+		btnLogin.addActionListener(e -> {
+		String name=textField.getText();
+		String password=String.valueOf(passwordField.getPassword());
+		if(name.equals("admin")&&password.equals("admin123")){
+			AdminSuccess.main(new String[]{});
+			frame.dispose();
+		}else{
+			JOptionPane.showMessageDialog(AdminLogin.this, "Sorry, Username or Password Error","Login Error! Alarm!", JOptionPane.ERROR_MESSAGE);
+			textField.setText("");
+			passwordField.setText("");
+		}
 		});
 		
 		passwordField = new JPasswordField();
